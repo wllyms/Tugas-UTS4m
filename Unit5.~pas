@@ -1,0 +1,119 @@
+unit Unit5;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Buttons;
+
+type
+  TFkondisional2 = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    hadir: TEdit;
+    tugas: TEdit;
+    bobot1: TEdit;
+    bobot2: TEdit;
+    uts: TEdit;
+    harian: TEdit;
+    bobot3: TEdit;
+    bobot4: TEdit;
+    uas: TEdit;
+    bobot5: TEdit;
+    Button1: TButton;
+    Button3: TButton;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    total: TEdit;
+    Egrade: TEdit;
+    Eket: TEdit;
+    BitBtn1: TBitBtn;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fkondisional2: TFkondisional2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFkondisional2.Button1Click(Sender: TObject);
+var
+nil1, nil2, nil3,nil4,nil5, hasil : real ;
+b1, b2, b3, b4, b5 : real;
+grade,ket :string;
+
+begin
+//berfungsi untuk mengambil data nilai
+nil1 := strtofloat(hadir.Text);
+nil2 := strtofloat(tugas.Text);
+nil3 := strtofloat(uts.Text);
+nil4 := strtofloat(harian.Text);
+nil5 := strtofloat(uas.Text);
+//mengambil pesan data bobot
+b1 := strtofloat(bobot1.Text)/100;
+b2 := strtofloat(bobot2.Text)/100;
+b3 := strtofloat(bobot3.Text)/100;
+b4 := strtofloat(bobot4.Text)/100;
+b5 := strtofloat(bobot5.Text)/100;
+//menghitung nilai akhir
+hasil := nil1*b1 + nil2*b2 + nil3*b3 + nil4*b4 + nil5*b5;
+//menentukan grade nilai
+
+if (hasil >= 80) then
+grade:='A'
+else
+if (hasil >= 70) then
+grade :='B'
+else
+if (hasil >= 60) then
+grade := 'C'
+else
+if (hasil >= 50) then
+grade :='D'
+else
+grade :='E';
+//Menentukan keterangan hasil
+if ((grade = 'A')or(grade='B')or(grade='C')) then
+ket:='LULUS'
+else
+ket:='TIDAK LULUS';
+//Hasil dari proses....
+total.Text := floattostr(hasil);
+Egrade.Text := grade;
+Eket.Text := ket;
+end;
+
+procedure TFkondisional2.BitBtn1Click(Sender: TObject);
+begin
+hadir.Text := '0';
+tugas.Text := '0';
+uts.Text := '0';
+harian.Text := '0';
+uas.Text := '0';
+total.Text := '';
+Egrade.Text := '';
+Eket.Text :='';
+end;
+
+procedure TFkondisional2.Button3Click(Sender: TObject);
+begin
+Application.Terminate;
+end;
+
+end.
