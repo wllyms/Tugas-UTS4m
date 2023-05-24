@@ -1,8 +1,8 @@
 object Fjadwal: TFjadwal
-  Left = 192
-  Top = 117
-  Width = 1044
-  Height = 540
+  Left = 193
+  Top = 122
+  Width = 866
+  Height = 623
   Caption = 'TAMBAH DATA JADWAL'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object Fjadwal: TFjadwal
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -35,7 +36,7 @@ object Fjadwal: TFjadwal
     end
     object Label2: TLabel
       Left = 56
-      Top = 80
+      Top = 264
       Width = 51
       Height = 19
       Caption = 'KELAS '
@@ -48,7 +49,7 @@ object Fjadwal: TFjadwal
     end
     object Label3: TLabel
       Left = 56
-      Top = 112
+      Top = 232
       Width = 110
       Height = 19
       Caption = 'MATA KULIAH '
@@ -61,7 +62,7 @@ object Fjadwal: TFjadwal
     end
     object Label4: TLabel
       Left = 56
-      Top = 144
+      Top = 80
       Width = 88
       Height = 19
       Caption = 'JAM MULAI '
@@ -74,7 +75,7 @@ object Fjadwal: TFjadwal
     end
     object Label5: TLabel
       Left = 56
-      Top = 176
+      Top = 112
       Width = 87
       Height = 19
       Caption = 'JAM AKHIR '
@@ -87,7 +88,7 @@ object Fjadwal: TFjadwal
     end
     object Label6: TLabel
       Left = 56
-      Top = 208
+      Top = 136
       Width = 38
       Height = 19
       Caption = 'HARI'
@@ -100,7 +101,7 @@ object Fjadwal: TFjadwal
     end
     object Label7: TLabel
       Left = 56
-      Top = 240
+      Top = 168
       Width = 73
       Height = 19
       Caption = 'TANGGAL'
@@ -113,10 +114,10 @@ object Fjadwal: TFjadwal
     end
     object Label8: TLabel
       Left = 56
-      Top = 272
-      Width = 82
+      Top = 200
+      Width = 76
       Height = 19
-      Caption = 'RUANGAN]'
+      Caption = 'RUANGAN'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -137,63 +138,64 @@ object Fjadwal: TFjadwal
       Font.Style = []
       ParentFont = False
     end
-    object Edit1: TEdit
+    object kelas: TEdit
       Left = 200
-      Top = 80
+      Top = 264
       Width = 329
       Height = 21
       TabOrder = 0
     end
-    object Edit2: TEdit
+    object matkul: TEdit
       Left = 200
-      Top = 112
+      Top = 232
       Width = 329
       Height = 21
       TabOrder = 1
     end
-    object Edit3: TEdit
+    object mulai: TEdit
       Left = 200
-      Top = 144
+      Top = 80
       Width = 329
       Height = 21
       TabOrder = 2
     end
-    object Edit4: TEdit
+    object akhir: TEdit
       Left = 200
-      Top = 176
+      Top = 112
       Width = 329
       Height = 21
       TabOrder = 3
     end
-    object ComboBox1: TComboBox
+    object hari: TComboBox
       Left = 200
-      Top = 208
+      Top = 136
       Width = 169
       Height = 21
       ItemHeight = 13
       TabOrder = 4
+      Text = '--PILIH HARI--'
+      Items.Strings = (
+        'SENIN'
+        'SELASA'
+        'RABU'
+        'KAMIS'
+        'JUM'#39'AT'
+        'SABTU'
+        'MINGGU')
     end
-    object ComboBox2: TComboBox
+    object ruangan: TEdit
       Left = 200
-      Top = 240
-      Width = 169
-      Height = 21
-      ItemHeight = 13
-      TabOrder = 5
-    end
-    object Edit5: TEdit
-      Left = 200
-      Top = 272
+      Top = 200
       Width = 329
       Height = 21
-      TabOrder = 6
+      TabOrder = 5
     end
-    object Edit6: TEdit
+    object hadir: TEdit
       Left = 200
       Top = 304
       Width = 329
       Height = 21
-      TabOrder = 7
+      TabOrder = 6
     end
     object Button1: TButton
       Left = 56
@@ -201,7 +203,7 @@ object Fjadwal: TFjadwal
       Width = 89
       Height = 49
       Caption = 'BARU'
-      TabOrder = 8
+      TabOrder = 7
     end
     object Button2: TButton
       Left = 152
@@ -209,7 +211,8 @@ object Fjadwal: TFjadwal
       Width = 89
       Height = 49
       Caption = 'SIMPAN'
-      TabOrder = 9
+      TabOrder = 8
+      OnClick = Button2Click
     end
     object Button3: TButton
       Left = 248
@@ -217,7 +220,8 @@ object Fjadwal: TFjadwal
       Width = 89
       Height = 49
       Caption = 'UBAH'
-      TabOrder = 10
+      TabOrder = 9
+      OnClick = Button3Click
     end
     object Button4: TButton
       Left = 344
@@ -225,13 +229,24 @@ object Fjadwal: TFjadwal
       Width = 89
       Height = 49
       Caption = 'HAPUS'
+      TabOrder = 10
+      OnClick = Button4Click
+    end
+    object dtp1: TDateTimePicker
+      Left = 200
+      Top = 168
+      Width = 186
+      Height = 21
+      Date = 45070.614138240740000000
+      Time = 45070.614138240740000000
       TabOrder = 11
     end
-    object DBGrid2: TDBGrid
-      Left = 64
-      Top = 436
-      Width = 473
-      Height = 185
+    object DBGrid1: TDBGrid
+      Left = 56
+      Top = 424
+      Width = 457
+      Height = 161
+      DataSource = Flat.ds1
       TabOrder = 12
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -242,7 +257,6 @@ object Fjadwal: TFjadwal
         item
           Expanded = False
           FieldName = 'no'
-          Width = 30
           Visible = True
         end
         item
@@ -260,70 +274,39 @@ object Fjadwal: TFjadwal
         item
           Expanded = False
           FieldName = 'hari'
-          Width = 150
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'tanggal'
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'ruang'
-          Width = 80
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'matkul'
-          Width = 150
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'kelas'
-          Width = 80
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'kehadiran_total'
+          Width = 100
           Visible = True
         end>
     end
-  end
-  object ds1: TDataSource
-    DataSet = qry1
-    Left = 696
-    Top = 296
-  end
-  object Konekdb1: TADOConnection
-    Connected = True
-    ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=jadwa' +
-      'l.mdb;Mode=Share Deny None;Persist Security Info=False;Jet OLEDB' +
-      ':System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Databas' +
-      'e Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Database Locking' +
-      ' Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Global Bul' +
-      'k Transactions=1;Jet OLEDB:New Database Password="";Jet OLEDB:Cr' +
-      'eate System Database=False;Jet OLEDB:Encrypt Database=False;Jet ' +
-      'OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact Witho' +
-      'ut Replica Repair=False;Jet OLEDB:SFP=False'
-    LoginPrompt = False
-    Mode = cmShareDenyNone
-    Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 696
-    Top = 184
-  end
-  object qry1: TADOQuery
-    Active = True
-    Connection = Konekdb1
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from jadwal_tb')
-    Left = 696
-    Top = 240
   end
 end

@@ -1,6 +1,6 @@
 object Flat: TFlat
-  Left = 192
-  Top = 117
+  Left = 211
+  Top = 163
   Width = 1044
   Height = 621
   Caption = 'LATIHAN'
@@ -158,6 +158,7 @@ object Flat: TFlat
     Height = 33
     Caption = 'TAMBAH DATA BARU'
     TabOrder = 5
+    OnClick = Button4Click
   end
   object con1: TADOConnection
     Connected = True

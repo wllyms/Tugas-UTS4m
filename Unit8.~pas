@@ -27,6 +27,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,6 +38,8 @@ var
   Flat: TFlat;
 
 implementation
+
+
 
 {$R *.dfm}
 
@@ -75,6 +78,11 @@ dbgrd1.Columns[3].Width:=90;
 dbgrd1.Columns[5].Width:=50;
 dbgrd1.Columns[6].Width:=110;
 dbgrd1.Columns[7].Width:=90;
+end;
+
+procedure TFlat.Button4Click(Sender: TObject);
+begin
+Fjadwal.show;
 end;
 
 end.

@@ -9,7 +9,8 @@ uses
   Unit5 in 'Unit5.pas' {Fkondisional2},
   Unit6 in 'Unit6.pas' {Fstring},
   Unit7 in 'Unit7.pas' {Frevisi},
-  Unit8 in 'Unit8.pas' {Flat};
+  Unit8 in 'Unit8.pas' {Flat},
+  Unit9 in 'Unit9.pas' {Fjadwal};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TFstring, Fstring);
   Application.CreateForm(TFrevisi, Frevisi);
   Application.CreateForm(TFlat, Flat);
+  Application.CreateForm(TFjadwal, Fjadwal);
   Application.Run;
 end.

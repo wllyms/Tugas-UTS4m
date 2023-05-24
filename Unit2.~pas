@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls;
 
 type
-  TForm2 = class(TForm)
+  TFlatihan1 = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -26,18 +26,18 @@ type
   end;
 
 var
-  Form2: TForm2;
+  Flatihan1: TFlatihan1;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm2.Button1Click(Sender: TObject);
+procedure TFlatihan1.Button1Click(Sender: TObject);
 begin
 hasil.Text:=IntToStr(StrToInt(nilai1.text)+strtoint(nilai2.Text));
 end;
 
-procedure TForm2.Button2Click(Sender: TObject);
+procedure TFlatihan1.Button2Click(Sender: TObject);
 begin
 Close;
 //Application.Terminate;
